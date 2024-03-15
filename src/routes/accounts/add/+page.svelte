@@ -2,8 +2,8 @@
 	import CircleArrowLeft from 'lucide-svelte/icons/circle-arrow-left';
 	import { signIn } from '$lib/api/service/auth';
 	import Input from '$lib/components/form/input.svelte';
-	import { t } from '$lib/translations';
 	import { sendToast } from '$lib/stores/toasts';
+	import { t } from '$lib/translations';
 
 	let email = $state('');
 	let password = $state('');
