@@ -1,8 +1,15 @@
 import { GET, POST } from '..';
 
-type TwoFactorType = 'otp' | 'totp' | 'emailotp';
+export type TwoFactorType = 'otp' | 'totp' | 'emailotp';
 
-export const signIn = async (email: string, password: string) => {
+export const signIn = async (
+	email: string,
+	password: string
+): Promise<
+	| { state: 'success'; auth: string }
+	| { state: 'twoFactor'; auth: string; requiresTwoFactorAuth: [TwoFactorType] }
+	| { state: 'failed'; error: string }
+> => {
 	const basicAuth = btoa(`${encodeURIComponent(email)}:${encodeURIComponent(password)}`);
 	const { data, error, response } = await GET('/auth/user', {
 		headers: {
@@ -10,22 +17,25 @@ export const signIn = async (email: string, password: string) => {
 		}
 	});
 
-	if (error) return { state: 'failed', error };
+	if (error) return { state: 'failed', error: error.error?.message ?? 'Unknown error' };
 
 	const auth = extractAuthCookie(response.headers);
 	if (!auth) return { state: 'failed', error: 'No auth cookie found' };
 
-	// Check if the response has requiresTwoFactorAuth
 	const { requiresTwoFactorAuth } = data as unknown as { requiresTwoFactorAuth: [TwoFactorType] };
 	if (requiresTwoFactorAuth) return { state: 'twoFactor', requiresTwoFactorAuth, auth };
 
 	return { state: 'success', auth };
 };
 
-export const verifyTwoFactor = async (type: TwoFactorType, code: string, auth: string) => {
+export const verifyTwoFactor = async (
+	type: TwoFactorType,
+	code: string,
+	auth: string
+): Promise<{ state: 'success'; auth: string } | { state: 'failed'; error: string }> => {
 	const { error } = await POST(`/auth/twofactorauth/${type}/verify`, { body: { code } });
 
-	if (error) return { state: 'failed', error };
+	if (error) return { state: 'failed', error: error.error?.message ?? 'Unknown error' };
 
 	return { state: 'success', auth };
 };

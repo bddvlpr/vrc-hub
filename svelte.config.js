@@ -8,9 +8,6 @@ const config = {
 		adapter: adapter({
 			fallback: 'fallback.html'
 		})
-	},
-	compilerOptions: {
-		runes: true
 	}
 };
 
