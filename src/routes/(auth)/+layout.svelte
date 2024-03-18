@@ -21,18 +21,18 @@
 			</a>
 		</div>
 		<div class="navbar-center">
-			<NavbarIcon tooltip={$t('tooltip.test')} href="/worlds">
+			<NavbarIcon tooltip={$t('common.navbar.worlds')} href="/worlds">
 				<Globe />
 			</NavbarIcon>
-			<NavbarIcon tooltip={$t('tooltip.test')} href="/friends">
+			<NavbarIcon tooltip={$t('common.navbar.friends')} href="/friends">
 				<Users />
 			</NavbarIcon>
-			<NavbarIcon tooltip={$t('tooltip.test')} href="/search">
+			<NavbarIcon tooltip={$t('common.navbar.search')} href="/search">
 				<Search />
 			</NavbarIcon>
 		</div>
 		<div class="navbar-end mr-2">
-			<NavbarIcon tooltip={$t('tooltip.test')} href="/settings/accounts">
+			<NavbarIcon tooltip={$t('common.navbar.settings')} href="/settings">
 				<Cog />
 			</NavbarIcon>
 		</div>
