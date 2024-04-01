@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "author": "Luna Simons <luna@bddvlpr.com> (https://bddvlpr.com)",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.12.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-format": "^0.1.0",
+    "typescript": "^5.4.3"
+  }
+}
