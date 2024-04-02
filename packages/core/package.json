@@ -1,0 +1,11 @@
+{
+  "name": "@vrc-hub/core",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf dist && tsc"
+  },
+  "dependencies": {
+    "@vrc-hub/api": "workspace:^"
+  }
+}
