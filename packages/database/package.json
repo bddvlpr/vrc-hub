@@ -1,0 +1,20 @@
+{
+  "name": "@vrc-hub/database",
+  "version": "0.1.0",
+  "author": "Luna Simons <luna@bddvlpr.com> (https://bddvlpr.com)",
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.30.7",
+    "tauri-plugin-sql-api": "github:tauri-apps/tauri-plugin-sql#v1"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.20.14"
+  }
+}

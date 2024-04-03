@@ -1,11 +1,13 @@
 {
   "name": "@vrc-hub/core",
   "version": "0.1.0",
+  "author": "Luna Simons <luna@bddvlpr.com> (https://bddvlpr.com)",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf dist && tsc"
   },
   "dependencies": {
-    "@vrc-hub/api": "workspace:^"
+    "@vrc-hub/api": "workspace:^",
+    "@vrc-hub/database": "workspace:^"
   }
 }
